@@ -1,0 +1,6 @@
+query PostImageUploadCredential($createdAtMs: String!, $updatedAtMs: String!){
+	postImageUploadCredential(createdAtMs: $createdAtMs, updatedAtMs: $updatedAtMs) {
+		url
+		fields
+	}
+}

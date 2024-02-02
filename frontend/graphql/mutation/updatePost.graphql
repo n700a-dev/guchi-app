@@ -1,0 +1,5 @@
+mutation UpdatePost($input: TPostArg!) {
+  updatePost(input: $input) {
+    result
+  }
+}

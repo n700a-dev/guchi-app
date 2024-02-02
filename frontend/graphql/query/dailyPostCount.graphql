@@ -1,0 +1,6 @@
+query DailyPostCount($postedDate: String!){
+	postedDate(postedDate: $postedDate) {
+		postedDate
+    postCount
+	}
+}

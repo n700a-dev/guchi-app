@@ -1,0 +1,7 @@
+query CurrentUser{
+  currentUser {
+  	__typename
+		id
+		nickname
+	}
+}

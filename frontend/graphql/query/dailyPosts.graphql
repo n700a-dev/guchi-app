@@ -1,0 +1,13 @@
+query DailyPosts($postedDate: String!){
+	dailyPosts(postedDate: $postedDate) {
+		__typename
+		uploadedAtMs
+		text
+		emotion
+		imageUrl
+		createdAtMs
+		updatedAtMs
+		diffHour
+		postedDate
+	}
+}

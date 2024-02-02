@@ -1,0 +1,86 @@
+type DailyEmotionCount {
+  postedDate: String!
+  emotion: String
+  emotionCount: Int!
+}
+
+type Mutation {
+  withdrawCurrentUser: MyBoolean!
+  createPost(input: TPostCreateArg!): MyBoolean!
+  updatePost(input: TPostArg!): MyBoolean!
+  deletePost(input: TPostDeleteArg!): MyBoolean!
+}
+
+type MyBoolean {
+  result: Boolean!
+}
+
+type Post {
+  uploadedAtMs: String
+  text: String
+  emotion: String
+  imageUrl: String
+  createdAtMs: String!
+  updatedAtMs: String!
+  postedDate: String!
+  diffHour: Int!
+}
+
+type PostedDate {
+  postedDate: String!
+  startOfDayMs: String!
+  endOfDayMs: String!
+  postCount: Int!
+  updatedAtMs: String!
+  diffHour: Int!
+}
+
+type Query {
+  currentUser: User!
+  users: [User!]!
+  postedDates(year: Int!, month: Int!): [PostedDate!]!
+  postedDate(postedDate: String!): PostedDate!
+  dailyPosts(postedDate: String!): [Post!]!
+  postImageUploadCredential(createdAtMs: String!, updatedAtMs: String!): UploadCredential!
+  postCount: Int!
+  dailyEmotionCounts(year: Int!, month: Int!): [DailyEmotionCount!]!
+  strageCredential: StrageCredential!
+}
+
+type StrageCredential {
+  expiredAtMs: String!
+  baseUrl: String!
+  accessQuery: String!
+}
+
+input TPostArg {
+  text: String!
+  emotion: String = null
+  imageUrl: String = null
+  createdAtMs: String!
+  updatedAtMs: String!
+}
+
+input TPostCreateArg {
+  text: String!
+  emotion: String = null
+  imageUrl: String = null
+  createdAtMs: String!
+  updatedAtMs: String!
+  diffHour: Int!
+  postedDate: String!
+}
+
+input TPostDeleteArg {
+  createdAtMs: String!
+}
+
+type UploadCredential {
+  url: String!
+  fields: String!
+}
+
+type User {
+  id: Int!
+  nickname: String!
+}

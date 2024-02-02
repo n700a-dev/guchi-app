@@ -1,0 +1,5 @@
+mutation WithdrawCurrentUser {
+  withdrawCurrentUser {
+    result
+  }
+}

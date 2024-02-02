@@ -1,0 +1,8 @@
+query PostedDates($year: Int!, $month: Int!){
+	postedDates(year: $year, month: $month) {
+		postedDate
+    startOfDayMs
+    postCount
+    updatedAtMs
+	}
+}

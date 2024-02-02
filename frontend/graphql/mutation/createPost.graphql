@@ -1,0 +1,5 @@
+mutation createPost($input: TPostCreateArg!) {
+  createPost(input: $input) {
+    result
+  }
+}

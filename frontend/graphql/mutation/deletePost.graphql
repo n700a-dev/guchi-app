@@ -1,0 +1,5 @@
+mutation DeletePost($input: TPostDeleteArg!) {
+  deletePost(input: $input) {
+    result
+  }
+}

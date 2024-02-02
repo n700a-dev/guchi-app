@@ -1,0 +1,3 @@
+query PostCount {
+	postCount
+}

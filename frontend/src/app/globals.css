@@ -1,0 +1,23 @@
+/* 基本的にここにスタイルは当てない　*/
+body {
+  margin: 0;
+  padding: 0;
+  overscroll-behavior-y: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.image-prohibited-drag {
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.linkified {
+  text-decoration: underline !important;
+  color: #576199 !important;
+}
