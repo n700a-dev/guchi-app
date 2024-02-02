@@ -1,0 +1,34 @@
+# NOTE: バージョンは隠ぺいしています
+
+# API
+fastapi==*****
+uvicorn==*****
+python-multipart==*****
+httpx==*****
+
+# Password
+bcrypt==*****
+passlib==*****
+python-jose==*****
+
+# Encryption
+cryptography==*****
+
+# GraphQL
+graphene==*****
+strawberry-graphql==*****
+
+# DB
+SQLAlchemy==*****
+alembic==*****
+psycopg2-binary==*****
+# psycopg2==*****
+
+# DynamoDB
+boto3==*****
+
+# Typing
+pydantic==*****
+
+# DI
+injector==*****

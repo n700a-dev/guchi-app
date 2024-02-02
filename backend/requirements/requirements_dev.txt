@@ -1,0 +1,9 @@
+# development only
+black
+flake8
+httpx
+pytest
+python-multipart
+rich
+typer
+libcst
