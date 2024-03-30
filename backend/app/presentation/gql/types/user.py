@@ -25,6 +25,21 @@ class User:
         return info.context.current_user
 
     @classmethod
+    async def get_users(cls, info: Info):
+        if not info.context.current_user.is_admin:
+            raise "User is not Admin."
+
+        loader = DataLoader(load_fn=load_users)
+        # users = await asyncio.gather(loader.load(1), loader.load(2), loader.load(3), loader.load(4))
+        # loader.load(1)
+        # loader.load(2)
+        # loader.load(3)
+        # loader.load(4)
+        # print("USERS", users)
+        users = session.query(UserModel).all()
+        return users
+
+    @classmethod
     def withdraw_current_user(cls, info: Info):
         try:
             user = info.context.current_user
@@ -36,3 +51,5 @@ class User:
             session.rollback()
             print(e)
             return BooleanType(False)
+        finally:
+            session.close()

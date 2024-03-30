@@ -1,9 +1,9 @@
+
 from sqlalchemy import Column, Integer, String, ForeignKey, Text, BigInteger
 
 from infrastructure.db.setting import Base
 
-
-class PostRepository(Base):
+class PostModel(Base):
     __tablename__ = "posts"
     author_id = Column(  # PK
         "author_id", Integer, ForeignKey("users.id", onupdate="CASCADE", ondelete="CASCADE"), primary_key=True

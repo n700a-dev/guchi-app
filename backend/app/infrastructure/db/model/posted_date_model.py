@@ -3,7 +3,7 @@ from sqlalchemy import Column, Integer, String, ForeignKey, Text, BigInteger
 from infrastructure.db.setting import Base
 
 
-class PostedDateRepository(Base):
+class PostedDateModel(Base):
     __tablename__ = "posted_dates"
     author_id = Column(  # PK
         "author_id", Integer, ForeignKey("users.id", onupdate="CASCADE", ondelete="CASCADE"), primary_key=True

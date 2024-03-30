@@ -10,11 +10,11 @@ from utils.my_logger import FASTAPI_LOG
 
 fastapi_logger = getLogger(FASTAPI_LOG)
 
-class BaseUseCase(metaclass=ABCMeta):
-    """DDDのUseCaseレイヤー
+class BaseQueryService(metaclass=ABCMeta):
+    """DDDのQueryServiceレイヤー
 
-    UseCaseレイヤーは、アクターがエンティティに対して行うアクションを明示します。
-    全てのUseCaseは、このクラスを継承する必要があります。
+    QueryServiceレイヤーは、アクターがエンティティに対して行うアクションを明示します。
+    全てのQueryServiceは、このクラスを継承する必要があります。
     """
 
     def __init__(self):
@@ -25,14 +25,7 @@ class BaseUseCase(metaclass=ABCMeta):
         raise NotImplementedError
 
     def execute(self, *args, **kwargs):
-        try:
-            ret = self._execute(*args, **kwargs)
-            session.commit()
-            return ret
-        except Exception as e:
-            fastapi_logger.exception(e)
-        finally:
-            session.close()
+        return self._execute(*args, **kwargs)
 
     def resolve(self, interface):
         """指定したインターフェースに対応する実装を返す

@@ -8,9 +8,9 @@ from utils.datetime_handler import end_of_the_day, start_of_the_day, to_date_sta
 from application.usecase.create_post import CreatePost
 from application.usecase.update_post import UpdatePost
 from application.usecase.delete_post import DeletePost
-from application.usecase.get_post_count import GetPostCount
-from application.usecase.get_daily_posts import GetDailyPosts
-from application.usecase.get_daily_emotion_count import GetDailyEmotionCounts
+from application.query_service.get_post_count import GetPostCount
+from application.query_service.get_daily_posts import GetDailyPosts
+from application.query_service.get_daily_emotion_count import GetDailyEmotionCounts
 
 from presentation.gql.types.boolean import BooleanType
 from domain.value_object.post_object import (
@@ -21,8 +21,6 @@ from domain.value_object.post_object import (
 )
 from domain.value_object.posted_date_object import PostedDateInputObject
 from domain.value_object.daily_emotion_count import DailyEmotionCountObject
-from domain.entity.posted_date_repo import PostedDateRepository
-from domain.entity.post_repo import PostRepository
 from presentation.gql.context import Info
 from infrastructure.db.setting import session
 from infrastructure.s3.upload_singner import UploadSigner
@@ -138,7 +136,7 @@ class Post:
             image_url=input.imageUrl,
         )
 
-        result = CreatePost(session, author_id).execute(post)
+        result = CreatePost().execute(author_id, post)
         return BooleanType(result)
 
     @classmethod
@@ -153,7 +151,7 @@ class Post:
             emotion=input.emotion,
             image_url=input.imageUrl,
         )
-        result = UpdatePost(session, author_id).execute(post)
+        result = UpdatePost().execute(author_id, post)
 
         return BooleanType(result)
 
@@ -162,6 +160,6 @@ class Post:
         author_id = info.context.current_user.id
         post = PostDeleteInputObject(author_id=author_id, created_at_ms=input.createdAtMs)
 
-        result = DeletePost(session, author_id).execute(post)
+        result = DeletePost().execute(author_id, post)
 
         return BooleanType(result)
