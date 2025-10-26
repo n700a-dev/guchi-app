@@ -1,10 +1,6 @@
 ## サービスURL
-- TOPページ
-  - https://guchi-log.net/
-- テストユーザーログイン
-  - https://guchi-log.net/login
-    - UserID: test-user
-    - PassWord: 別途ご案内するパスワードを入力ください 
+- TOPページ（閉鎖中）
+  - ~~https://guchi-log.net/~~
 
 ## サービス概要
 - 人目を気にせず愚痴を吐き出せ、日記にすることができるサービス
